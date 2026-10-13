@@ -14,8 +14,8 @@ LIBSDEFLAGS  =
 TESTLIB = $(testlibdir)/libtestlib.a
 LDFLAGS =   
 CC	= gcc
-MPICC	= 
-F77	= gfortran
+MPICC	= mpicc
+F77	= 
 CC_R	= $(CC) -pthread
 CFLAGS	=   -DPAPI_NUM_COMP=3 -O2
 OMPCFLGS = -fopenmp

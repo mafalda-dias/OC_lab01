@@ -1,0 +1,2 @@
+rm -f cm1 *.o
+cc  -I../../papi-7.2.0/src -O2 -std=c11 -Wall -Wextra  cm1.c ../../papi-7.2.0/src/libpapi.a -ldl -lpthread  -o cm1

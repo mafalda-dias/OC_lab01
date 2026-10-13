@@ -13,11 +13,11 @@ PAPILIB = ../$(LIBRARY)
 TESTLIB = $(testlibdir)/libtestlib.a
 LDFLAGS =  
 CC	= gcc
-F77	= gfortran
+F77	= 
 CC_R	= $(CC) -pthread
 CFLAGS	=   -DPAPI_NUM_COMP=3
 OMPCFLGS = -fopenmp
 FFLAGS	=     -Dlinux -ffixed-line-length-132
 TOPTFLAGS= -O1
 FTOPTFLAGS= -O1
-ENABLE_FORTRAN_TESTS=yes
+ENABLE_FORTRAN_TESTS=

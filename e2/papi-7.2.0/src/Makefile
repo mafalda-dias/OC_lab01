@@ -31,7 +31,7 @@ DATADIR   = ${datarootdir}/${PACKAGE_TARNAME}
 DESCR = 
 DOCDIR	  = ${datarootdir}/doc/${PACKAGE_TARNAME}
 EPREFIX   = ${prefix}
-F77	  = gfortran
+F77	  = 
 FFLAGS    =     -Dlinux -ffixed-line-length-132
 FLAGS = 
 FILENAME = Rules.pfm4_pe
@@ -48,7 +48,7 @@ MANDIR	  = ${datarootdir}/man
 MISCHDRS = 
 MISCOBJS = $(MISCSRCS:.c=.o)
 MISCSRCS =  x86_cpuid_info.c
-MPICC = 
+MPICC = mpicc
 NOOPT = 
 OMPCFLGS = -fopenmp
 OPTFLAGS = -O2
@@ -95,9 +95,9 @@ CC_COMMON_NAME	= gcc
 MIC = no
 BUILD_LIBSDE_SHARED = yes
 BUILD_LIBSDE_STATIC = yes
-FORT_WRAPPERS_SRC=upper_PAPI_FWRAPPERS.c papi_fwrappers_.c papi_fwrappers__.c
-FORT_WRAPPERS_OBJ=upper_PAPI_FWRAPPERS.o papi_fwrappers_.o papi_fwrappers__.o
-FORT_HEADERS=fpapi.h f77papi.h f90papi.h
+FORT_WRAPPERS_SRC=
+FORT_WRAPPERS_OBJ=
+FORT_HEADERS=
 
 include $(FILENAME)
 

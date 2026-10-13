@@ -13,8 +13,8 @@ PAPILIB = $(datadir)/$(LIBRARY)
 TESTLIB = $(testlibdir)/libtestlib.a
 LDFLAGS =  
 CC	= gcc
-MPICC	= 
-F77	= gfortran
+MPICC	= mpicc
+F77	= 
 CC_R	= $(CC) -pthread
 CFLAGS	=   -DPAPI_NUM_COMP=3
 OPTFLAGS= -O2
@@ -24,9 +24,9 @@ UTILOBJS = $(TESTLIB)
 BUILD_SHARED_LIB = yes
 BUILD_LIBSDE_SHARED = yes
 BUILD_LIBSDE_STATIC = yes
-NO_MPI_TESTS = yes
+NO_MPI_TESTS = 
 NVPPC64LEFLAGS = 
-ENABLE_FORTRAN_TESTS = yes
+ENABLE_FORTRAN_TESTS = 
 
 
 tests: $(NAME)_tests

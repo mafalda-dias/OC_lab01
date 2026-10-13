@@ -1,0 +1,10 @@
+event=PAPI_L1_DCM min=4096 max=1048576 target=1048576 min_passes=4 samples=5
+Array: 4096 bytes
+Array: 8192 bytes
+Array: 16384 bytes
+Array: 32768 bytes
+Array: 65536 bytes
+Array: 131072 bytes
+Array: 262144 bytes
+Array: 524288 bytes
+Array: 1048576 bytes

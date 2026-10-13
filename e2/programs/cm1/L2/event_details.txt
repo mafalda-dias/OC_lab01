@@ -1,0 +1,34 @@
+Available PAPI preset and user defined events plus hardware information.
+--------------------------------------------------------------------------------
+PAPI version             : 7.2.0.0
+Operating system         : Linux 6.12.40
+Vendor string and code   : GenuineIntel (1, 0x1)
+Model string and code    : 11th Gen Intel(R) Core(TM) i5-11500 @ 2.70GHz (167, 0xa7)
+CPU revision             : 1.000000
+CPUID                    : Family/Model/Stepping 6/167/1, 0x06/0xa7/0x01
+CPU Max MHz              : 2700
+CPU Min MHz              : 2700
+Total cores              : 12
+SMT threads per core     : 2
+Cores per socket         : 6
+Sockets                  : 1
+Cores per NUMA region    : 12
+NUMA regions             : 1
+Running in a VM          : no
+Number Hardware Counters : 19
+Max Multiplex Counters   : 384
+Fast counter read (rdpmc): yes
+--------------------------------------------------------------------------------
+
+Event name:                   PAPI_L2_TCM
+Event Code:                   0x80000007
+Number of Native Events:      1
+Short Description:           |L2 cache misses|
+Long Description:            |Level 2 cache misses|
+Developer's Notes:           ||
+Derived Type:                |NOT_DERIVED|
+Postfix Processing String:   ||
+ Native Code[0]: 0x4000000b |LLC_REFERENCES|
+ Number of Register Values: 0
+ Native Event Description: |count each request originating from the core to reference a cache line in the last level cache. The count may include speculation, but excludes cache line fills due to hardware prefetch|
+

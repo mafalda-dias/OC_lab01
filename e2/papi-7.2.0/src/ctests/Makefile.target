@@ -15,9 +15,9 @@ PAPILIB = ../$(LIBRARY)
 TESTLIB = $(testlibdir)/libtestlib.a
 LDFLAGS =   
 CC	= gcc
-MPICC	= 
-NO_MPI_TESTS	= yes
-F77	= gfortran
+MPICC	= mpicc
+NO_MPI_TESTS	= 
+F77	= 
 CC_R	= $(CC) -pthread
 CFLAGS	=   -DPAPI_NUM_COMP=3 -O1
 OMPCFLGS = -fopenmp
