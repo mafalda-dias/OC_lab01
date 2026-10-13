@@ -1,0 +1,6 @@
+#ifndef _PAPICOMPCFGEVENTDEFS
+#define _PAPICOMPCFGEVENTDEFS
+
+
+
+#endif
