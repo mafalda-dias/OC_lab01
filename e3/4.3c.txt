@@ -1,0 +1,7 @@
+Configuration 3 was selected because it achieved the lowest number of cache misses (94) among the six tested configurations, with a hit rate of 81.64%.
+
+This configuration is direct-mapped, has a data capacity of 1024 bytes, and uses 64-byte cache lines (16 words per line). Compared to Configuration 1, which has the same capacity and associativity but uses 16-byte cache lines, Configuration 3 reduced misses from 166 to 94.
+
+This improvement is consistent with better exploitation of spatial locality. The workload accesses consecutive elements in arrays a, b, and c (stride of 4 bytes) and strided elements in array d (stride of 12 bytes). Larger 64-byte lines can hold 16 consecutive integers, allowing multiple accesses to benefit from a single loaded line. Although larger lines result in fewer cache lines and sets, potentially increasing conflicts, the experimental results suggest that the benefits of spatial locality outweighed these effects for this workload.
+
+The same configuration would not necessarily perform best for every program with the same total array size. Cache performance depends on memory access patterns. For example, programs with non-sequential accesses may benefit from smaller cache lines, as larger lines may fetch unnecessary data.

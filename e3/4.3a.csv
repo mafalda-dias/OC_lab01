@@ -1,0 +1,4 @@
+Preset,2^N Lines,2^N Ways,2^N Words/Line,Sets (S),Ways (A),Words/line (W),Data capacity (bytes),Write-hit,Write-miss,Replacement policy,Hits,Misses,Writebacks,Hit rate (%)
+32-entry 4-word direct-mapped,5,0,2,32,1,4,512,Write-back,Write-allocate,LRU,120,392,315,23.44
+32-entry 4-word fully associative,0,5,2,1,32,4,512,Write-back,Write-allocate,LRU,320,192,116,62.50
+32-entry 4-word 2-way set associative,4,1,2,16,2,4,512,Write-back,Write-allocate,LRU,28,484,360,5.47
