@@ -1,0 +1,98 @@
+#!/usr/bin/env bash
+# %%%% This part was kept as it was before %%%%
+set -euo pipefail
+cd "$(dirname "$0")"
+
+if (( $# > 2 )); then
+    echo 'Usage: bash run [output-directory] [PAPI_EVENT_NAME]' >&2
+    exit 1
+fi
+out=${1:-results}
+event=${2:-}
+
+# %%%% This part was updated to allow an existing output directory %%%%
+# Existing files are replaced only after measurement and plotting succeed.
+if [[ -e "$out" && ! -d "$out" ]]; then
+    echo "Cannot use $out: it exists but is not a directory." >&2
+    exit 1
+fi
+
+# %%%% This part was removed hence the commented bits %%%%
+# if [[ -e "$out" ]]; then
+#     echo "Refusing to overwrite $out. Choose a new directory (e.g. L1 or L2)." >&2
+#     exit 1
+# fi
+
+# %%%% This part was kept as it was before %%%%
+python3 -c 'import matplotlib' || {
+    echo 'Python 3 and matplotlib are required; see README.md.' >&2
+    exit 1
+}
+mkdir -p "$(dirname "$out")"
+stage=$(mktemp -d "${out}.tmp.XXXXXX")
+
+trap 'echo "Run failed; incomplete files retained in $stage" >&2; if [[ -f "$stage/benchmark.log" ]]; then cat "$stage/benchmark.log" >&2; fi' ERR
+
+{
+    uname -srm
+    command -v lscpu >/dev/null && lscpu
+    python3 --version
+    python3 -c 'import matplotlib; print("matplotlib", matplotlib.__version__)'
+    "${CC:-cc}" --version
+} > "$stage/platform.txt" 2>&1
+
+make clean > "$stage/build.log" 2>&1
+make >> "$stage/build.log" 2>&1
+cp cm1.c Makefile run plot_results.py "$stage/"
+
+papi_dir=${PAPI_DIR:-../../papi-7.2.0/src}
+"$papi_dir/utils/papi_avail" -a > "$stage/available_events.txt" 2>&1
+
+if [[ -n "$event" ]]; then
+    ./cm1 "$event" > "$stage/results.csv" 2> "$stage/benchmark.log"
+else
+    ./cm1 > "$stage/results.csv" 2> "$stage/benchmark.log"
+fi
+
+selected=$(python3 - "$stage/results.csv" <<'PY'
+import csv, sys
+with open(sys.argv[1]) as f:
+    print(next(csv.DictReader(f))['event'])
+PY
+)
+
+# %%%% This part was updated with separate preset/native metadata tools %%%%
+# PAPI presets start with PAPI_. Native names retain their full qualifiers.
+# This selects a description tool, NEVER substitutes a measurement event.
+case "$selected" in
+    PAPI_*)
+        "$papi_dir/utils/papi_avail" -e "$selected" \
+            > "$stage/event_details.txt" 2>&1
+        ;;
+    *)
+        "$papi_dir/utils/papi_native_avail" -e "$selected" \
+            > "$stage/event_details.txt" 2>&1
+        ;;
+esac
+
+# %%%% This part was removed hence the commented bits %%%%
+# Previously all events were sent to the preset-only description utility:
+# "$papi_dir/utils/papi_avail" -e "$selected" \
+#     > "$stage/event_details.txt" 2>&1
+
+python3 plot_results.py "$stage/results.csv" --output-dir "$stage"
+
+# %%%% This part was updated to replace generated files in the destination %%%%
+# Unrelated files in the output directory are left unchanged.
+mkdir -p "$out"
+for file in "$stage"/*; do
+    mv -f -- "$file" "$out/"
+done
+rmdir "$stage"
+
+# %%%% This part was removed hence the commented bits %%%%
+# mv "$stage" "$out"
+
+# %%%% This part was kept as it was before %%%%
+trap - ERR
+echo "Completed: $out/cache_misses.png"

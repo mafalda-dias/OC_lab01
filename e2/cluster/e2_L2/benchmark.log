@@ -1,0 +1,12 @@
+event=PAPI_L2_DCM min=65536 max=67108864 target=1048576 min_passes=4 samples=5
+Array: 65536 bytes
+Array: 131072 bytes
+Array: 262144 bytes
+Array: 524288 bytes
+Array: 1048576 bytes
+Array: 2097152 bytes
+Array: 4194304 bytes
+Array: 8388608 bytes
+Array: 16777216 bytes
+Array: 33554432 bytes
+Array: 67108864 bytes

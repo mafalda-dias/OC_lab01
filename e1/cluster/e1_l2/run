@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+if ! command -v make >/dev/null 2>&1; then
+    echo "Error: make is required." >&2
+    exit 1
+fi
+
+if ! command -v python3 >/dev/null 2>&1; then
+    echo "Error: Python 3 is required." >&2
+    exit 1
+fi
+
+echo "Building benchmark..."
+make
+
+echo "Running benchmark..."
+make run
+
+echo "Creating summary table and plot..."
+make plots
+
+echo "Done. Results: results.csv"
+echo "Summary: cache_table.md"
+echo "Plot: cache_time.png"

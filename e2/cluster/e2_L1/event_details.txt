@@ -1,0 +1,35 @@
+Available PAPI preset and user defined events plus hardware information.
+--------------------------------------------------------------------------------
+PAPI version             : 7.2.0.0
+Operating system         : Linux 6.12.40
+Vendor string and code   : GenuineIntel (1, 0x1)
+Model string and code    : Intel(R) Xeon(R) CPU E5-2650 0 @ 2.00GHz (45, 0x2d)
+CPU revision             : 7.000000
+CPUID                    : Family/Model/Stepping 6/45/7, 0x06/0x2d/0x07
+CPU Max MHz              : 2000
+CPU Min MHz              : 2000
+Total cores              : 4
+SMT threads per core     : 1
+Cores per socket         : 1
+Sockets                  : 4
+Cores per NUMA region    : 4
+NUMA regions             : 1
+Running in a VM          : yes
+VM Vendor                : KVMKVMKVM
+Number Hardware Counters : 11
+Max Multiplex Counters   : 384
+Fast counter read (rdpmc): yes
+--------------------------------------------------------------------------------
+
+Event name:                   PAPI_L1_DCM
+Event Code:                   0x80000000
+Number of Native Events:      1
+Short Description:           |L1D cache misses|
+Long Description:            |Level 1 data cache misses|
+Developer's Notes:           ||
+Derived Type:                |NOT_DERIVED|
+Postfix Processing String:   ||
+ Native Code[0]: 0x40000003 |L1D:REPLACEMENT|
+ Number of Register Values: 0
+ Native Event Description: |L1D cache, masks:Number of cache lines brought into the L1D cache|
+
