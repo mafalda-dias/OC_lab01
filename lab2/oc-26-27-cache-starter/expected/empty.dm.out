@@ -1,0 +1,9 @@
+reads=0
+writes=0
+l1_hits=0
+l1_misses=0
+victim_hits=0
+victim_misses=0
+memory_reads=0
+memory_writes=0
+cycles=0

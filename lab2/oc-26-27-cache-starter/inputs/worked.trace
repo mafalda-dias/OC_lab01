@@ -1,0 +1,5 @@
+# Worked example in the assignment; use build/tiny/cachesim.
+W 0x00 0xAA
+R 0x20
+R 0x00
+F

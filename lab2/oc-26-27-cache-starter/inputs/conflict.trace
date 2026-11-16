@@ -1,0 +1,5 @@
+# Use build/tiny/cachesim: L1=32, block=16, victim=1.
+R 0x00
+R 0x20
+R 0x00
+R 0x20

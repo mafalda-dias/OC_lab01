@@ -1,0 +1,13 @@
+R 0x0000 0x00
+R 0x0020 0x20
+R 0x0000 0x00
+R 0x0020 0x20
+reads=4
+writes=0
+l1_hits=0
+l1_misses=4
+victim_hits=0
+victim_misses=0
+memory_reads=4
+memory_writes=0
+cycles=204

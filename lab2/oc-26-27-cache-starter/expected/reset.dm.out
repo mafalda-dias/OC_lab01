@@ -1,0 +1,10 @@
+R 0x0001 0xA5
+reads=1
+writes=0
+l1_hits=1
+l1_misses=0
+victim_hits=0
+victim_misses=0
+memory_reads=0
+memory_writes=1
+cycles=51

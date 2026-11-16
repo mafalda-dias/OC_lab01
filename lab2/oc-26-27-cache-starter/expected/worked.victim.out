@@ -1,0 +1,11 @@
+R 0x0020 0x20
+R 0x0000 0xAA
+reads=2
+writes=1
+l1_hits=0
+l1_misses=3
+victim_hits=1
+victim_misses=2
+memory_reads=2
+memory_writes=1
+cycles=159

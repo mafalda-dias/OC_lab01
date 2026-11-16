@@ -1,0 +1,6 @@
+# Tiny configuration. A hit must update sa2 recency.
+R 0x00
+R 0x20
+R 0x00
+R 0x40
+R 0x20

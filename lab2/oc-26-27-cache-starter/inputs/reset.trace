@@ -1,0 +1,6 @@
+# Reset must preserve the dirty block; repeated flush is free.
+W 0x01 0xA5
+Z
+R 0x01
+F
+F
